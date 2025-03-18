@@ -1,34 +1,78 @@
-[![progress-banner](https://backend.codecrafters.io/progress/shell/70108df9-0cbd-406a-bde3-7884ac749d40)](https://app.codecrafters.io/users/codecrafters-bot?r=2qF)
+# Custom Shell
 
-This is a starting point for C++ solutions to the
-["Build Your Own Shell" Challenge](https://app.codecrafters.io/courses/shell/overview).
+A simple custom shell implementation in C++ with features such as command execution, tab completion, and redirection parsing.
 
-In this challenge, you'll build your own POSIX compliant shell that's capable of
-interpreting shell commands, running external programs and builtin commands like
-cd, pwd, echo and more. Along the way, you'll learn about shell command parsing,
-REPLs, builtin commands, and more.
+## Features
 
-**Note**: If you're viewing this repo on GitHub, head over to
-[codecrafters.io](https://codecrafters.io) to try the challenge.
+- **Command Execution**: Run built-in and external commands seamlessly.
+- **Tab Completion**: Autocomplete commands and file paths using the Tab key.
+- **Input Redirection (`<`)**: Read input from a file.
+- **Output Redirection (`>` and `>>`)**: Redirect command output to a file.
+- **Pipe (`|`) Support**: Chain commands together.
+- **History Feature**: Keep track of previous commands.
+- **Background Execution (`&`)**: Run processes in the background.
 
-# Passing the first stage
+## Installation
 
-The entry point for your `shell` implementation is in `src/main.cpp`. Study and
-uncomment the relevant code, and push your changes to pass the first stage:
+1. Clone the repository:
+   ```sh
+   git clone https://github.com/yourusername/custom-shell.git
+   cd custom-shell
+   ```
+2. Compile the shell:
+   ```sh
+   g++ -o shell main.cpp shell.cpp -lreadline
+   ```
+3. Run the shell:
+   ```sh
+   ./shell
+   ```
 
-```sh
-git commit -am "pass 1st stage" # any msg
-git push origin master
-```
+## Usage
 
-Time to move on to the next stage!
+- Type commands like in a regular shell.
+- Use **Tab** for autocompletion.
+- Use **Ctrl + C** to terminate a running command.
+- Use **Ctrl + D** to exit the shell.
 
-# Stage 2 & beyond
+### Examples
 
-Note: This section is for stages 2 and beyond.
+- **Running a command:**
+  ```sh
+  ls -l
+  ```
+- **Redirecting output:**
+  ```sh
+  ls > output.txt
+  ```
+- **Chaining commands with a pipe:**
+  ```sh
+  ls | grep .cpp
+  ```
+- **Running a command in the background:**
+  ```sh
+  ./long_running_task &
+  ```
 
-1. Ensure you have `cmake` installed locally
-1. Run `./your_program.sh` to run your program, which is implemented in
-   `src/main.cpp`.
-1. Commit your changes and run `git push origin master` to submit your solution
-   to CodeCrafters. Test output will be streamed to your terminal.
+## Dependencies
+
+- `g++` (C++ Compiler)
+- `readline` (For tab completion and history management)
+
+## Contributing
+
+1. Fork the repository
+2. Create a new branch (`git checkout -b feature-branch`)
+3. Commit your changes (`git commit -m 'Add new feature'`)
+4. Push to the branch (`git push origin feature-branch`)
+5. Create a Pull Request
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Acknowledgments
+
+- Inspired by Unix shell implementations
+- Uses the Readline library for command-line editing and history
+
